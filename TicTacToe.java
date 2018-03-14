@@ -127,88 +127,31 @@ public class TicTacToe {
         // Specify cell functionality
         class ClickListener implements ActionListener {
             public void actionPerformed(ActionEvent e) {
-
                 if (e.getSource() == gameBoard[0][0]) {
                     makeMove(0, 0);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[0][1]) {
                     makeMove(0, 1);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[0][2]) {
                     makeMove(0, 2);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[1][0]) {
                     makeMove(1, 0);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[1][1]) {
                     makeMove(1, 1);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[1][2]) {
                     makeMove(1, 2);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[2][0]) {
                     makeMove(2, 0);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[2][1]) {
                     makeMove(2, 1);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
                 } else if (e.getSource() == gameBoard[2][2]) {
                     makeMove(2, 2);
-                    if (winnerExists(gameBoard, "X")) {
-                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
-                        System.exit(0);
-                    } else if (winnerExists(gameBoard, "O")) {
-                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
-                        System.exit(0);
-                    }
+                }
+                if (winnerExists(gameBoard, "X")) {
+                    JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
+                    System.exit(0);
+                } else if (winnerExists(gameBoard, "O")) {
+                    JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
+                    System.exit(0);
                 }
                 if (turnCount == 9 && !(winnerExists(gameBoard, "X") && winnerExists(gameBoard, "O"))) {
                     JOptionPane.showMessageDialog(gameFrame, "Draw!");
