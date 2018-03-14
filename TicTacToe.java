@@ -12,6 +12,12 @@ public class TicTacToe {
     private static JButton[][] gameBoard;
     private static int turnCount;
 
+    /**
+     * Checks the game board for a winning combination in all possible directions
+     * @param a    the JButton[][] array to be checked
+     * @param symbol    either "X" or "O"
+     * @return    true if a winning combination exists, false otherwise
+     */
     private static Boolean winnerExists(JButton[][] a, String symbol) {
         int i = 1;
         int j = 1;
@@ -41,11 +47,22 @@ public class TicTacToe {
             return false;
     }
 
-
+    /**
+     * Checks if a box has already been played
+     * @param rowIdx    the row index
+     * @param colIdx    the column index
+     * @return    true if the box hasn't been played, false otherwise
+     */
     private static Boolean isValidMove(int rowIdx, int colIdx) {
         return gameBoard[rowIdx][colIdx].getText().equals("");
     }
 
+    /**
+     * Populates the selected box with the current players piece
+     * @param gamePiece    "X" if player one, "O" if player two
+     * @param rowIdx    the row index
+     * @param colIdx    the column index
+     */
     private static void makeMove(String gamePiece, int rowIdx, int colIdx) {
         gameBoard[rowIdx][colIdx].setText(gamePiece);
     }
