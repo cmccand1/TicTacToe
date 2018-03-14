@@ -9,8 +9,8 @@ public class TicTacToe {
 
     private static String player1, player2;
     private static String turn;
-    private static JButton[][] gameBoard;
     private static int turnCount;
+    private static JButton[][] gameBoard;
 
     /**
      * Checks the game board for a winning combination in all possible directions
@@ -19,6 +19,7 @@ public class TicTacToe {
      * @return    true if a winning combination exists, false otherwise
      */
     private static Boolean winnerExists(JButton[][] a, String symbol) {
+        // This is the middle of the 3x3 matrix
         int i = 1;
         int j = 1;
 
