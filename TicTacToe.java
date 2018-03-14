@@ -66,6 +66,7 @@ public class TicTacToe {
      */
     private static void makeMove(String gamePiece, int rowIdx, int colIdx) {
         gameBoard[rowIdx][colIdx].setText(gamePiece);
+        turnCount++;
     }
 
 
@@ -105,7 +106,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(0, 0)) {
                             makeMove("X", 0, 0);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -116,7 +116,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(0, 0)) {
                             makeMove("O", 0, 0);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -129,7 +128,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(0, 1)) {
                             makeMove("X", 0, 1);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -140,7 +138,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(0, 1)) {
                             makeMove("O", 0, 1);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -153,7 +150,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(0, 2)) {
                             makeMove("X", 0, 2);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -164,7 +160,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(0, 2)) {
                             makeMove("O", 0, 2);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -177,7 +172,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(1, 0)) {
                             makeMove("X", 1, 0);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -188,7 +182,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(1, 0)) {
                             makeMove("O", 1, 0);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -201,7 +194,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(1, 1)) {
                             makeMove("X", 1, 1);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -212,7 +204,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(1, 1)) {
                             makeMove("O", 1, 1);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -225,7 +216,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(1, 2)) {
                             makeMove("X", 1, 2);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -236,7 +226,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(1, 2)) {
                             makeMove("O", 1, 2);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -249,7 +238,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(2, 0)) {
                             makeMove("X", 2, 0);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -260,7 +248,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(2, 0)) {
                             makeMove("O", 2, 0);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -273,7 +260,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(2, 1)) {
                             makeMove("X", 2, 1);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -284,7 +270,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(2, 1)) {
                             makeMove("O", 2, 1);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
@@ -297,7 +282,6 @@ public class TicTacToe {
                     if (turn.equals(player1)) {
                         if (isValidMove(2, 2)) {
                             makeMove("X", 2, 2);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "X")) {
                                 JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
@@ -308,7 +292,6 @@ public class TicTacToe {
                     } else if (turn.equals(player2)) {
                         if (isValidMove(2, 2)) {
                             makeMove("O", 2, 2);
-                            turnCount += 1;
 
                             if (winnerExists(gameBoard, "O")) {
                                 JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
