@@ -24,25 +24,41 @@ public class TicTacToe {
         int j = 1;
 
         // Checks the rows for 3 in a row
-        if (a[i - 1][j - 1].getText().equals(symbol) && a[i - 1][j].getText().equals(symbol) && a[i - 1][j + 1].getText().equals(symbol))
+        if        (a[i - 1][j - 1].getText().equals(symbol)
+                && a[i - 1][j].getText().equals(symbol)
+                && a[i - 1][j + 1].getText().equals(symbol))
             return true;
-        else if (a[i][j - 1].getText().equals(symbol) && a[i][j].getText().equals(symbol) && a[i][j + 1].getText().equals(symbol))
+        else if   (a[i][j - 1].getText().equals(symbol)
+                && a[i][j].getText().equals(symbol)
+                && a[i][j + 1].getText().equals(symbol))
             return true;
-        else if (a[i + 1][j - 1].getText().equals(symbol) && a[i + 1][j].getText().equals(symbol) && a[i + 1][j + 1].getText().equals(symbol))
+        else if   (a[i + 1][j - 1].getText().equals(symbol)
+                && a[i + 1][j].getText().equals(symbol)
+                && a[i + 1][j + 1].getText().equals(symbol))
             return true;
 
         // Checks the columns for 3 in a row
-        else if (a[i - 1][j - 1].getText().equals(symbol) && a[i][j - 1].getText().equals(symbol) && a[i + 1][j - 1].getText().equals(symbol))
+        else if   (a[i - 1][j - 1].getText().equals(symbol)
+                && a[i][j - 1].getText().equals(symbol)
+                && a[i + 1][j - 1].getText().equals(symbol))
             return true;
-        else if (a[i - 1][j].getText().equals(symbol) && a[i][j].getText().equals(symbol) && a[i + 1][j].getText().equals(symbol))
+        else if   (a[i - 1][j].getText().equals(symbol)
+                && a[i][j].getText().equals(symbol)
+                && a[i + 1][j].getText().equals(symbol))
             return true;
-        else if (a[i - 1][j + 1].getText().equals(symbol) && a[i][j + 1].getText().equals(symbol) && a[i + 1][j + 1].getText().equals(symbol))
+        else if   (a[i - 1][j + 1].getText().equals(symbol)
+                && a[i][j + 1].getText().equals(symbol)
+                && a[i + 1][j + 1].getText().equals(symbol))
             return true;
 
             // Checks the diagonals for 3 in a row
-        else if (a[i - 1][j - 1].getText().equals(symbol) && a[i][j].getText().equals(symbol) && a[i + 1][j + 1].getText().equals(symbol))
+        else if   (a[i - 1][j - 1].getText().equals(symbol)
+                && a[i][j].getText().equals(symbol)
+                && a[i + 1][j + 1].getText().equals(symbol))
             return true;
-        else if (a[i + 1][j - 1].getText().equals(symbol) && a[i][j].getText().equals(symbol) && a[i - 1][j + 1].getText().equals(symbol))
+        else if   (a[i + 1][j - 1].getText().equals(symbol)
+                && a[i][j].getText().equals(symbol)
+                && a[i - 1][j + 1].getText().equals(symbol))
             return true;
         else
             return false;
@@ -60,17 +76,22 @@ public class TicTacToe {
 
     /**
      * Populates the selected box with the current players piece
-     * @param gamePiece    "X" if player one, "O" if player two
      * @param rowIdx    the row index
      * @param colIdx    the column index
      */
-    private static void makeMove(String gamePiece, int rowIdx, int colIdx) {
-        gameBoard[rowIdx][colIdx].setText(gamePiece);
-        turnCount++;
-        if (turn == player1) {
-            turn = player2;
-        } else {
-            turn = player1;
+    private static void makeMove(int rowIdx, int colIdx) {
+        if (turn.equals(player1)) {
+            if (isValidMove(rowIdx, colIdx)) {
+                gameBoard[rowIdx][colIdx].setText("X");
+                turn = player2;
+                turnCount++;
+            }
+        } else if (turn.equals(player2)) {
+            if (isValidMove(rowIdx, colIdx)) {
+                gameBoard[rowIdx][colIdx].setText("O");
+                turn = player1;
+                turnCount++;
+            }
         }
     }
 
@@ -108,15 +129,7 @@ public class TicTacToe {
             public void actionPerformed(ActionEvent e) {
 
                 if (e.getSource() == gameBoard[0][0]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(0, 0)) {
-                            makeMove("X", 0, 0);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(0, 0)) {
-                            makeMove("O", 0, 0);
-                        }
-                    }
+                    makeMove(0, 0);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -125,15 +138,7 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[0][1]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(0, 1)) {
-                            makeMove("X", 0, 1);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(0, 1)) {
-                            makeMove("O", 0, 1);
-                        }
-                    }
+                    makeMove(0, 1);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -142,15 +147,7 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[0][2]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(0, 2)) {
-                            makeMove("X", 0, 2);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(0, 2)) {
-                            makeMove("O", 0, 2);
-                        }
-                    }
+                    makeMove(0, 2);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -159,15 +156,7 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[1][0]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(1, 0)) {
-                            makeMove("X", 1, 0);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(1, 0)) {
-                            makeMove("O", 1, 0);
-                        }
-                    }
+                    makeMove(1, 0);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -176,15 +165,7 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[1][1]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(1, 1)) {
-                            makeMove("X", 1, 1);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(1, 1)) {
-                            makeMove("O", 1, 1);
-                        }
-                    }
+                    makeMove(1, 1);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -193,15 +174,7 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[1][2]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(1, 2)) {
-                            makeMove("X", 1, 2);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(1, 2)) {
-                            makeMove("O", 1, 2);
-                        }
-                    }
+                    makeMove(1, 2);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -210,15 +183,7 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[2][0]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(2, 0)) {
-                            makeMove("X", 2, 0);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(2, 0)) {
-                            makeMove("O", 2, 0);
-                        }
-                    }
+                    makeMove(2, 0);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
@@ -227,25 +192,16 @@ public class TicTacToe {
                         System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[2][1]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(2, 1)) {
-                            makeMove("X", 2, 1);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(2, 1)) {
-                            makeMove("O", 2, 1);
-                        }
+                    makeMove(2, 1);
+                    if (winnerExists(gameBoard, "X")) {
+                        JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
+                        System.exit(0);
+                    } else if (winnerExists(gameBoard, "O")) {
+                        JOptionPane.showMessageDialog(gameFrame, player2 + " is the winner!");
+                        System.exit(0);
                     }
                 } else if (e.getSource() == gameBoard[2][2]) {
-                    if (turn.equals(player1)) {
-                        if (isValidMove(2, 2)) {
-                            makeMove("X", 2, 2);
-                        }
-                    } else if (turn.equals(player2)) {
-                        if (isValidMove(2, 2)) {
-                            makeMove("O", 2, 2);
-                        }
-                    }
+                    makeMove(2, 2);
                     if (winnerExists(gameBoard, "X")) {
                         JOptionPane.showMessageDialog(gameFrame, player1 + " is the winner!");
                         System.exit(0);
